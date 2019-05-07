@@ -10,9 +10,9 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView et_show,et_result;
+    TextView et_show, et_result;
 
-    Button add,sub,mul,div,remainder,del;
+    Button add, sub, mul, div, remainder, del;
     Button result;
 
 
@@ -74,12 +74,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if( ( (Double.parseDouble(et_result.getText().toString())) - ((int)Double.parseDouble(et_result.getText().toString())) ) == 0.0 )
-                {
-                    et_result.setText( "" + (Integer.parseInt(et_result.getText().toString()) * -1) );
-                }
-                else {
-                    et_result.setText( "" + (Double.parseDouble(et_result.getText().toString()) * -1) );
+                if (((Double.parseDouble(et_result.getText().toString())) - ((int) Double.parseDouble(et_result.getText().toString()))) == 0.0) {
+                    et_result.setText("" + (Integer.parseInt(et_result.getText().toString()) * -1));
+                } else {
+                    et_result.setText("" + (Double.parseDouble(et_result.getText().toString()) * -1));
                 }
 
             }
@@ -89,12 +87,11 @@ public class MainActivity extends AppCompatActivity {
     Button.OnClickListener mListener = new Button.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if(et_result.getText().toString() == null)
-            {
-                Toast.makeText(MainActivity.this,"수를 입력하세요",Toast.LENGTH_SHORT).show();
+            if (et_result.getText().toString() == null) {
+                Toast.makeText(MainActivity.this, "수를 입력하세요", Toast.LENGTH_SHORT).show();
             }
             switch (v.getId()) {
-                case R.id.btn_add :
+                case R.id.btn_add:
                     number1 = et_result.getText().toString();
                     history = et_result.getText().toString() + " + ";
                     et_show.setText(history);
@@ -103,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                     type = ADD;
                     break;
 
-                case R.id.btn_sub :
+                case R.id.btn_sub:
                     number1 = et_result.getText().toString();
                     history = et_result.getText().toString() + " - ";
                     et_show.setText(history);
@@ -112,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
                     type = SUB;
                     break;
 
-                case R.id.btn_mul :
+                case R.id.btn_mul:
                     number1 = et_result.getText().toString();
                     history = et_result.getText().toString() + " * ";
                     et_show.setText(history);
@@ -121,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
                     type = MUL;
                     break;
 
-                case R.id.btn_div :
+                case R.id.btn_div:
                     number1 = et_result.getText().toString();
                     history = et_result.getText().toString() + " / ";
                     et_show.setText(history);
@@ -130,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
                     type = DIV;
                     break;
 
-                case R.id.btn_remainder :
+                case R.id.btn_remainder:
                     number1 = et_result.getText().toString();
                     history = et_result.getText().toString() + " % ";
                     et_show.setText(history);
@@ -139,14 +136,14 @@ public class MainActivity extends AppCompatActivity {
                     type = REMAINDER;
                     break;
 
-                case R.id.btn_del :
+                case R.id.btn_del:
 
                     String del_number = et_result.getText().toString();
-                    Toast.makeText(MainActivity.this,del_number,Toast.LENGTH_SHORT).show();
-                    et_result.setText(del_number.substring(0,del_number.length() - 1));
+                    Toast.makeText(MainActivity.this, del_number, Toast.LENGTH_SHORT).show();
+                    et_result.setText(del_number.substring(0, del_number.length() - 1));
                     break;
 
-                case R.id.btn_result :
+                case R.id.btn_result:
                     double result = 0;
                     Toast.makeText(MainActivity.this, "결과", Toast.LENGTH_SHORT).show();
                     number2 = et_result.getText().toString();
@@ -156,19 +153,19 @@ public class MainActivity extends AppCompatActivity {
                     d1 = Double.parseDouble(number1);
                     d2 = Double.parseDouble(number2);
 
-                    if(type == ADD) {
+                    if (type == ADD) {
                         result = d1 + d2;
                         et_result.setText("" + result);
                     } else if (type == SUB) {
                         result = d1 - d2;
                         et_result.setText("" + result);
-                    }else if (type == MUL) {
+                    } else if (type == MUL) {
                         result = d1 * d2;
                         et_result.setText("" + result);
-                    }else if (type == DIV) {
+                    } else if (type == DIV) {
                         result = d1 / d2;
                         et_result.setText("" + result);
-                    }else if (type == REMAINDER) {
+                    } else if (type == REMAINDER) {
                         result = d1 % d2;
                         et_result.setText("" + result);
                     }
@@ -179,20 +176,41 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    public void onClick (View v)
-    {
-        switch(v.getId()){
-            case R.id.btn0 : et_result.setText(et_result.getText().toString() + 0); break;
-            case R.id.btn1 : et_result.setText(et_result.getText().toString() + 1); break;
-            case R.id.btn2 : et_result.setText(et_result.getText().toString() + 2); break;
-            case R.id.btn3 : et_result.setText(et_result.getText().toString() + 3); break;
-            case R.id.btn4 : et_result.setText(et_result.getText().toString() + 4); break;
-            case R.id.btn5 : et_result.setText(et_result.getText().toString() + 5); break;
-            case R.id.btn6 : et_result.setText(et_result.getText().toString() + 6); break;
-            case R.id.btn7 : et_result.setText(et_result.getText().toString() + 7); break;
-            case R.id.btn8 : et_result.setText(et_result.getText().toString() + 8); break;
-            case R.id.btn9 : et_result.setText(et_result.getText().toString() + 9); break;
-            case R.id.btndot : et_result.setText(et_result.getText().toString() + "."); break;
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn0:
+                et_result.setText(et_result.getText().toString() + 0);
+                break;
+            case R.id.btn1:
+                et_result.setText(et_result.getText().toString() + 1);
+                break;
+            case R.id.btn2:
+                et_result.setText(et_result.getText().toString() + 2);
+                break;
+            case R.id.btn3:
+                et_result.setText(et_result.getText().toString() + 3);
+                break;
+            case R.id.btn4:
+                et_result.setText(et_result.getText().toString() + 4);
+                break;
+            case R.id.btn5:
+                et_result.setText(et_result.getText().toString() + 5);
+                break;
+            case R.id.btn6:
+                et_result.setText(et_result.getText().toString() + 6);
+                break;
+            case R.id.btn7:
+                et_result.setText(et_result.getText().toString() + 7);
+                break;
+            case R.id.btn8:
+                et_result.setText(et_result.getText().toString() + 8);
+                break;
+            case R.id.btn9:
+                et_result.setText(et_result.getText().toString() + 9);
+                break;
+            case R.id.btndot:
+                et_result.setText(et_result.getText().toString() + ".");
+                break;
         }
     }
 }
